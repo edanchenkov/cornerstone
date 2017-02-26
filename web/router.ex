@@ -15,8 +15,8 @@ defmodule Cornerstone.Router do
 
   scope "/api/v1", Cornerstone do
     pipe_through :api
-    get "/user/:id", UserController, :get
-    get "/user/list", UserController, :list
+    # get "/user/:id", UserController, :get
+    # get "/user/list", UserController, :list
     post "/user", UserController, :create
   end
 
