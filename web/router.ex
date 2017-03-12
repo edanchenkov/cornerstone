@@ -13,17 +13,17 @@ defmodule Cornerstone.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/", Cornerstone do
+    pipe_through :browser
+    get "/", IndexController, :get
+  end
+
   scope "/api/v1", Cornerstone do
     pipe_through :api
     # get "/user/:id", UserController, :get
     # get "/user/list", UserController, :list
-    post "/user", UserController, :create
+    # post "/user", UserController, :create
+    resources "/users", UserController, except: [:new, :edit]
   end
 
-#    get "/", PageController, :index
-
-  # Other scopes may use custom stacks.
-  # scope "/api", Cornerstone do
-  #   pipe_through :api
-  # end
 end
